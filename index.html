@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>css布局</title>
     <style>
-        p {
+        h2 {
             margin: 0;
             padding: 0;
         }
@@ -20,10 +20,20 @@
            background: gray;
            margin: auto;
        }
+       .out {
+           width: 500px;
+           background: darkcyan;
+           border-top: 1px solid transparent;
+       }
+       .in {
+           height: 100px;
+           background: green;
+           margin-top: 20px;
+       }
     </style>
 </head>
 <body>
-    <h2>元素水平垂直居中 父容器flex布局，子容器margin: auto;</h2>
+    <h2>一：元素水平垂直居中 父容器flex布局，子容器margin: auto;</h2>
     <!-- 如果不给子容器加宽高，会实现多行文本水平垂直居中 -->
     <!--这里margin: auto; ==  justify-content: center  +  align-items: center-->
     <div class="container">
@@ -31,6 +41,11 @@
             <p>1eeee</p>
             <p>1cdsvdv</p>
         </div>
+    </div>
+
+    <h2>二、margin溢出 外层容器加 border-top: 1px solid transparent;</h2>
+    <div class="out">
+        <div class="in"></div>
     </div>
 </body>
 </html>
