@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多行文本和盒子垂直居中问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box-flex {
+            height: 500px;
+            width: 500px;
+            border: 1px solid red;
+            display:  flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .box-table {
+            height: 500px;
+            width: 500px;
+            border: 1px solid red;
+            display: table;
+        }
+        .box-table .content {
+           display: table-cell;
+           vertical-align: middle;
+           text-align: center; /** 能被p元素继承 */
+        }
+
+        #outer, .far{
+            background-color: #13CDF4;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        #middle{ 
+            background-color: #E41627;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 50%; 
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+        #middle2 {
+            background-color: #E41627;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 50%; 
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .son {
+            position:absolute;
+            background-color: #E41627;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .content2 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 40px;
+            width: 70px;
+            background-color: #E41627;
+        }
+    </style>
+</head>
+<body>
+    <!-- 父元素高度固定 -->
+    <!-- flex布局 -->
+    <div class="box-flex">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <!-- display: table  不需要知道子元素的大小-->
+    <div class="box-table">
+        <div class="content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+        </div>
+    </div>
+    <!-- 用绝对定位和margin -->
+    <div class="far">
+        <div class="content2">content2</div>
+    </div>
+    <!-- 子div固定大小 用定位和margin -->
+    <div id="outer">
+        <div id="middle">
+            子div(固定大小)垂直居中
+        </div>          
+    </div>
+    <div id="outer">
+        <div id="middle2">
+            子div(固定大小)垂直居中
+        </div>          
+    </div>
+    <!-- 子div高度不定 -->
+    <div class="far">
+        <div class="son">son</div>
+    </div>
+    总结：子div不知道高度， display:table,translate
+</body>
+</html>
