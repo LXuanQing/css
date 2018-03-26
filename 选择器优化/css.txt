@@ -1,0 +1,63 @@
+CSS选择器是从右到左进行规则匹配
+#header > a {font-weight:blod;}  浏览器必须遍历页面中所有的 a 元素并且确定其父元素的 id 是否为 header 。
+
+#header a {font-weight:blod;} 在遍历页面中所有 a 元素后还需向其上级遍历直到根节点。
+
+
+如何减少 CSS 选择器性能损耗？
+
+CSS 选择器的执行效率从高到低做了一个排序：
+
+1.id选择器（#myid）
+2.类选择器（.myclassname）
+3.标签选择器（div,h1,p）
+4.相邻选择器（h1+p）
+5.子选择器（ul < li）
+6.后代选择器（li a）
+7.通配符选择器（*）
+8.属性选择器（a[rel="external"]）
+9.伪类选择器（a:hover, li:nth-child）
+
+
+
+1、避免使用通用选择器
+BAD
+
+.content * {color: red;}
+2、避免使用标签或 class 选择器限制 id 选择器
+BAD
+button#backButton {…}
+BAD
+.menu-left#newMenuIcon {…}
+GOOD
+#backButton {…}
+
+3、避免使用标签限制 class 选择器
+BAD
+treecell.indented {…}
+GOOD
+.treecell-indented {…}
+BEST
+.hierarchy-deep {…}
+
+4、避免使用多层标签选择器。使用 class 选择器替换，减少css查找
+BAD
+treeitem[mailfolder="true"] > treerow > treecell {…}
+GOOD
+.treecell-mailfolder {…}
+
+
+5、避免使用子选择器
+BAD
+treehead treerow treecell {…}
+BETTER, BUT STILL BAD 
+treehead > treerow > treecell {…}
+GOOD
+.treecell-header {…}
+
+
+6、使用继承
+BAD 
+#bookmarkMenuItem > .menu-left { list-style-image: url(blah) }
+GOOD
+#bookmarkMenuItem { list-style-image: url(blah) }

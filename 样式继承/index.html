@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css样式继承</title>
+    <style>
+        .box {
+            display: none;
+            cursor: pointer;
+        }
+
+        .inline {
+            font-size: 20px;
+            line-height: 30px;
+            word-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: lowercase;
+            color: darkcyan;
+            direction: ltr;
+        }
+
+        .block {
+            color: darkcyan;
+            text-indent: 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 一、所有元素可以继承的属性 -->
+    <!-- 
+        1、元素可见性：visibility
+        2、光标属性：cursor
+    -->
+    <div class="box">
+        <div class="son">son</div>
+    </div>
+
+    <!-- 二、内联元素可以继承的属性 -->
+    <div class="inline">
+        <span>span span</span>
+    </div>
+
+    <!-- 三、块级元素可继承的属性 -->
+    <div class="block">
+        <p>块级元素</p>
+    </div>
+
+
+    <!-- 5、列表布局属性：list-style-type、list-style-image、list-style-position、list-style 可以继承 -->
+</body>
+</html>
