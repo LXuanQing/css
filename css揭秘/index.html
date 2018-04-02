@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css揭秘</title>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+	半透明边框
+	<div id="opacity-border"></div>
+	多重边框实线
+	<div id="multi-border-solid"></div>
+	多重边框虚线
+	<div id="multi-border-dash"></div>
+	边框内圆角
+	<div id="border-inner-radius"></div>
+	<ul id="background-position">
+		<li>background-position方案</li>
+		<div>background-origin方案</div>
+		<li>calc方案</li>
+	</ul>
+	条纹进度条
+	<div class="progress-outer">  <!--更好的扩展-->
+		<div class="progress-enter">
+		  	<div class="progress-bg"></div>
+		</div>
+		<!-- <span>60%</span> -->
+	</div>
+	不规则卡片
+	<div id="coupon-card"></div>
+	圆与椭圆
+	<div class="ellipse ellipse1"></div>
+    <div class="ellipse ellipse2"></div>
+	<div class="ellipse ellipse3"></div>
+	四边形
+	<div class="diamond"><span>① 嵌套元素</span></div>
+	<div class="diamond2"><span>② 伪元素(推荐)</span></div>
+	切角效果
+	<div class="bevel-corners">
+		A paragraph of filler text.La la la de dah de dah de dah de la.La la la de dah de dah de dah de la.La la la de dah de dah de dah de la.
+	</div>
+	简易饼图
+	<div class="pie"></div>
+	提示气泡
+	<div class="cell poptip--top-left" aria-controls="这里存放提示文字">top-left</div>
+	其他多边形
+	<div class="star-5-points"></div>
+	<div class="ribbon"></div>
+	<div class="heart"></div>
+	文本行斑马条纹
+	<div class="liner-line"></div>
+	环形文字
+	<div class="circle-text">
+		<svg viewBox="0 0 100 100">
+			<path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+			<text><textPath xlink:href="#circle">
+				You-need-to-know-css-tricks-You-need-to-know-css-tricks-You-
+			</textPath></text>
+		</svg>
+	</div>
+	交互式图片对比控件
+	<div class="main">
+		<h5>1️⃣ resize 方案</h5>
+		<div class="image-slider">
+			<div>
+				<img src="./south-china-sea2015.jpg" alt="Before" />
+			</div>
+			<img src="./south-china-sea2006.jpg" alt="After" />
+		</div>
+	</div>
+	扩大可点击区域
+	<a class="btn-normal">+</a>
+	<a class="btn-shadow">+</a>
+	filter:drop-shadow滤镜，实现尖角带阴影的提示面板
+	<div class="box drop-shadow">
+		<i class="cor"></i>
+		filter: drop-shadow
+	</div>
+	<div class="box box-shadow">
+		<i class="cor"></i>
+		box-shadow
+	</div>
+	自定义复选框
+	<div class="checkbox">
+		<input type="checkbox" id="awesome1" checked>
+		<label for="awesome1">Awesome</label>
+		<input type="checkbox" id="awesome2" disabled>
+		<label for="awesome2">禁用</label>
+		<input type="checkbox" id="awesome3" disabled class="checked">
+    	<label for="awesome3">选中禁用</label>
+	</div>
+	自定义单选框
+	<div class="radio">
+		<input type="radio" id="radio0" name="radio">
+		<label for="radio0">Vue</label>
+		<input type="radio" id="radio1" name="radio" checked>
+		<label for="radio1">React</label>
+		<input type="radio" id="radio4" name="radio" disabled>
+		<label for="radio4">禁用</label>
+	</div>
+	输入框完美居中
+	<div class="input-text">
+		<input type="text" placeholder="请填写手机号或姓名">
+	</div>
+	通过模糊弱化背景
+	<div class="blur">
+		<p>Bacon ipsum dolor amet consectetur short loin ut tri-tip alcatra ground round jowl beef meatloaf in pork. Elit chicken
+				ea spare ribs. Shank andouille ex boudin picanha turkey esse. Do doner fugiat tongue.
+		</p>
+		<p>Chuck filet mignon flank pork chop mollit enim veniam sed pork loin aliquip sausage prosciutto in deserunt. Nostrud
+			porchetta non nulla sunt. Cupim et velit picanha laborum salami capicola exercitation alcatra sausage cillum
+			shoulder minim esse. Pig boudin aliquip aute, tail ut cow incididunt short loin aliqua.
+		</p>
+		<p>Doner alcatra pastrami pig, strip steak eu in frankfurter occaecat in filet mignon chuck short loin nulla meatloaf.
+			Adipisicing aliqua kielbasa nulla proident. Ground round meatloaf kevin, shank adipisicing pork frankfurter t-bone
+			spare ribs cupidatat. Sed ham non duis enim, in ipsum fugiat est tongue short ribs ad bresaola prosciutto. Non
+			minim picanha, ad in occaecat fugiat veniam dolor deserunt.
+		</p>
+	</div>
+	自定义文字下划线
+	<div class="text-underline">
+		<p><a>请给我添加一条能看能看能看的下划线！</a></p>
+	</div>
+</body>
+</html>

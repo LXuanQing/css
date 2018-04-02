@@ -1,0 +1,755 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: #f5f5f5;
+}
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/** 1
+默认情况下，背景的颜色会延伸至边框下层，这意味着我们设置的透明边框效果会被覆盖掉
+在css3中，我们可以通过设置background-clip:padding-box来改变背景的默认行为
+background-clip 属性规定背景的绘制区域，默认值border-box，从边框开始绘制
+				padding-box  从内边距
+				content-box  从内容
+*/
+#opacity-border {
+	margin-top: 20px;
+    padding: 12px;
+    background: #b4a078;
+	border: 10px solid rgba(0, 0, 0, .3);
+	background-clip: padding-box;
+}
+
+/*
+2 多重边框
+box-shadow(x, y, blur, spread, color)
+x: X轴偏移距离
+y: Y轴偏移距离
+blur: 模糊距离
+spread: 扩张半径
+box-shadow还接受第四个参数作为阴影扩张半径，当我们只设置扩张半径时，零偏移，零模糊，产生的效果其实相当于一条实线“边框”。
+
+*/
+#multi-border-solid {
+	width: 100px;
+	height: 100px;
+	background: rebeccapurple;
+	margin: 100px auto 100px;
+	border-radius: 100%;
+	box-shadow: 0 0 0 6px #E8E2D6,
+				0 0 0 20px #E1D9C9,
+				0 0 0 30px #D9CFBB, 0 0 0 40px #D2C6AE,  
+                0 0 0 50px #CABCA0, 0 0 0 60px #C3B393,
+                0 0 0 70px #BBA985, 0 0 0 80px #B4A078;;
+}
+/*
+box-shadow只能模拟实线边框效果，某些情况下，我们可能需要生成虚线的边框效果，我们可以通过类似于border的描边outline和对应的描边偏移outline-offset来实现
+*/
+#multi-border-dash {
+	width: 200px; 
+	height: 120px;
+	background: #efebe9;
+	margin: 100px auto 100px;
+	border: 5px solid #B4A078;
+	outline: #B4A078 dashed 1px;
+	outline-offset: -10px;
+}
+
+
+/*
+box-shadow是会紧贴border-radius圆角边的，但是，描边outline并不会与圆角边border-radius贴合，
+我们可以将两者组合，通过box-shadow去填补描边outline所产生的间隙来达到我们想要的效果
+*/
+#border-inner-radius {
+	width: 300px;
+	height: 200px;
+	background: #efebe9;
+	margin: 100px auto 100px;
+	border-radius: 8px;
+	outline: 6px solid #b4a078;
+	box-shadow: 0 0 0 6px #b4a078;
+}
+
+
+
+
+/*
+background
+需要注意的是里面的/，它和font以及border-radius里简写方式使用的/用法相似。/可以在支持这种写法的浏览器里在background-position后面接着写background-size。
+除此之外，你也可以增加另外两个描述它的属性值： background-origin和 background-clip
+
+*/
+#background-position li:nth-of-type(1) {
+	width: 229px; 
+	height: 139px;
+	color: #f4f0ea;
+	padding: 16px 29px 28px 20px;
+	margin: 100px auto 100px;
+	background: #b4a078 url('./background-position.png') no-repeat bottom right / 78px 21px;
+	background-position: right 29px bottom 28px;
+}
+#background-position div:nth-of-type(1) {
+	width: 229px;
+	height: 139px;
+	color: #f4f0ea;
+	padding: 16px 29px 28px 20px;
+	margin: 100px auto 100px;
+	background: #b4a078 url('./background-position.png') no-repeat bottom right / 78px 21px;
+	background-origin: content-box;
+}
+
+#background-position li:nth-of-type(2) {
+	width: 229px; 
+	height: 139px;
+	color: #f4f0ea;
+	padding: 16px 29px 28px 20px;
+	margin: 100px auto 100px;
+	background: #b4a078 url('./background-position.png') no-repeat bottom right / 78px 21px;
+	background-position: calc(100% - 29px) calc(100% - 28px);
+}
+
+/*
+条纹进度条
+*/
+.progress-outer {
+	width: 60%; 
+	height: 12px;
+	margin: 100px auto 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative; 
+} 
+.progress-enter {  
+    height: inherit;
+    background: rgba(180, 160, 120, .2); 
+}
+
+@keyframes panoramic {
+	to {
+	  	background-position: 200% 0;
+	}
+}
+
+.progress-bg {
+	width: 60%; 
+	height: inherit;
+    border-radius: 6px; 
+    background: repeating-linear-gradient(-45deg, #D9CFBB  25%, #C3B393 0, #C3B393 50%,
+                    #D9CFBB 0, #D9CFBB 75%, #C3B393 0);
+	background-size: 16px 16px;
+    animation: panoramic 20s linear infinite;
+}
+
+
+#coupon-card {
+	width: 200px;
+	height: 120px;
+	margin: 100px auto 100px;
+    background-image: radial-gradient(circle at 100px -8px, transparent 20px, #b4a078 21px);
+}
+
+/*
+圆与椭圆
+*/
+.ellipse {
+	width: 200px; 
+	height: 200px;
+	background: #b4a078;
+	margin: 100px auto 100px;
+}
+.ellipse1 {
+	border-radius: 50% / 100% 100% 0 0;
+}
+.ellipse2 {
+	border-radius: 100% 0 0 0;
+}
+.ellipse3 {
+	border-radius: 50% / 100% 100% 0 0;
+}
+
+/*
+四边形
+*/
+.diamond {
+	width: 150px;
+	height: 150px;
+	color: white;
+	margin: 100px auto 100px;
+	background: #b4a078;
+	transform: skewX(-45deg);
+}
+.diamond span {
+	display: inline-block;
+	transform: skewX(45deg);
+}
+
+.diamond2 {
+	margin: 100px auto 100px;
+	width: 150px;
+	height: 150px;
+	position: relative;
+}
+.diamond2::before {
+	content: "";
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	z-index: -1;
+    transform: skewX(-45deg);
+    background: #b4a078;
+}
+
+/*
+切角效果
+*/
+.bevel-corners {
+	width: 249px;
+	height: 300px;
+	margin: 50px auto 100px;
+	padding: 30px;
+	color: #FFF;
+	/* background: #b4a078; */
+	background: linear-gradient(45deg, transparent 12px, #b4a078 13px) bottom left,
+                linear-gradient(135deg, transparent 12px, #b4a078 13px) top left, 
+                linear-gradient(-135deg, transparent 12px, #b4a078 13px) top right, 
+                linear-gradient(-45deg, transparent 12px, #b4a078 13px) bottom right;
+    background-size: 51% 51%;
+    background-repeat: no-repeat;
+}
+
+
+/**
+简易饼图
+*/
+.pie {
+	width: 100px; 
+    height: 100px;
+	border-radius: 50%;
+	margin: 50px auto 100px;
+    background-color: #E8E2D6;
+    background-image: linear-gradient(to right, transparent 50%, #b4a078 0);
+}
+.pie::before {
+    content: "";
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    background-color: inherit;
+    transform-origin: 0 50%;
+    transform: rotate(.3turn);
+}
+
+/*
+提示气泡 poptip--top-left
+*/
+.cell {
+	width: calc(33.33333% - 8px); 
+	height: 52px;
+    line-height: 52px;
+    border-radius: 8px;
+	background: #F7F5F1;
+	margin: 50px auto 100px;
+    cursor: pointer;
+	position: relative;
+	border-color: #b4a078;
+}
+.cell[class*=poptip--]::before, 
+.cell[class*=poptip--]::after {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s ease .05s;
+}
+.cell[class*=poptip--]:hover::before, 
+.cell[class*=poptip--]:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+/*下三角*/
+.cell[class*=poptip--]::before {
+    content: '';
+    position: absolute;
+	width: 0; 
+	height: 0;
+    border: 6px solid transparent;
+}
+.cell[class*=poptip--]::after {
+    content: attr(aria-controls);
+    position: absolute;
+    background: #b4a078;
+    font-size: 12px;
+    font-weight: normal;
+    color: white;
+    line-height: 12px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px #b4a078;
+}
+.cell[class*=poptip--top]::before {
+    border-top-color: inherit;
+}
+  /* top && bottom */
+.cell[class*=poptip--top]::before {
+    left: calc(50% - 6px);
+}
+.cell[class*=poptip--top]::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cell[class*=poptip--top]::before {
+    top: 0px;
+}
+.cell[class*=poptip--top]:hover::before {
+    transform: translateX(0%) translateY(-10px);
+}
+.cell[class*=poptip--top]::after {
+    bottom: 100%;
+    margin-bottom: -1px;
+}
+.cell[class*=poptip--top]:hover::after {
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/*
+其他多边形
+**/
+.star-5-points {
+	width: 0; 
+	height: 0;
+    position: relative;
+    margin: 50px auto;
+    border: 80px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 56px solid #b4a078;
+    transform: rotateZ(35deg);
+}
+.star-5-points::before {
+    content: "";
+    width: 0; height: 0;
+    position: absolute;
+    top: -36px; left: -52px;
+    border: 24px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 64px solid #b4a078;
+    transform: rotateZ(-35deg);
+}
+.star-5-points::after {
+	content: "";
+    width: 0; height: 0;
+    position: absolute;
+    top: 3px; left: -86px;
+    border: 80px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 56px solid #b4a078;
+    transform: rotateZ(-70deg);
+}
+
+
+
+.ribbon {
+	width: 0; 
+	height: 80px;
+	margin: 100px auto;
+    border: 40px solid #b4a078;
+    border-top: 0 solid;
+    border-bottom: 28px solid rgba(0,0,0,0);
+}
+
+
+.heart {
+	content: "";
+	margin: 100px auto;
+    display: block;
+    width: 100px;
+    min-height: 80px;
+    position: relative;
+    transform-origin: 50% 50% 0;
+}
+.heart:before {
+    content: "";
+    display: block;
+	width: 50px; 
+	height: 80px;
+    position: absolute;
+	top: 0; 
+	left: 50px;
+    border-radius: 50px 50px 0 0;
+    background: #b4a078;
+    transform: rotateZ(-45deg);
+    transform-origin: 0 100% 0;
+}
+.heart:after {
+    content: "";
+    display: block;
+	width: 50px; 
+	height: 80px;
+    position: absolute;
+	top: 0; 
+	left: 0;
+    border-radius: 50px 50px 0 0;
+    background: #b4a078;
+    transform: rotateZ(45deg);
+    transform-origin: 100% 100% 0;
+}
+
+
+/* 文本行斑马条纹 */
+.liner-line {
+	width: 400px;
+	height: 300px;
+	margin: 100px auto;
+	background-image: linear-gradient(rgba(18,18,18,.05) 50%, transparent 0);
+	background-size: auto 48px; /*一个背景的大小*/
+}
+
+/*
+环形文字
+*/
+@keyframes circular-text-rotate {
+	to {
+	  	transform: rotate(1turn); /*一圈*/
+	}
+}
+.circle-text {
+	width: 300px;
+	height: 300px;
+	margin: 100px auto;
+	font-size: 12px;
+}
+svg {
+	overflow: visible;
+	animation: circular-text-rotate 5s linear paused infinite;
+}
+svg:hover {
+    animation-play-state: running;
+}
+svg path {
+	fill: none;
+}
+svg text {
+	fill: #b4a078;
+}
+
+
+/*
+交互式图片对比控件
+*/
+.main {
+    width: 600px;
+	margin: 100px auto;
+}
+.image-slider {
+    position: relative;
+}
+.image-slider img {
+    display: block;
+    max-width: initial;
+}
+.image-slider > img {
+    width: 100%;
+}
+.image-slider > div > img {
+    height: 100%;
+}
+.image-slider > div {
+    width: 50%;
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    overflow: hidden;
+}
+.image-slider > div {
+    max-width: 100%;
+    resize: horizontal;
+}
+.image-slider > div::before {
+    content: "";
+	width: 12px; 
+	height: 12px;
+    position: absolute;
+	right: 0px; 
+	bottom: 0px;
+    padding: 5px;
+    cursor: ew-resize;
+    background: linear-gradient(-45deg, #E8E2D6 50%, transparent 0);
+    background-clip: content-box;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .8));
+}
+
+/*
+扩大可点击区域
+*/
+
+.btn-normal {
+    display: flex;
+	justify-content: center;
+	margin: 100px auto;
+    align-items: center;
+    width: 66px; height: 66px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 8px solid transparent;
+    background: #b4a078 padding-box;
+}
+.btn-shadow {
+	display: flex;
+	justify-content: center;
+	margin: 100px auto;
+    align-items: center;
+	width: 66px; 
+	height: 66px;
+	cursor: pointer;
+    border-radius: 50%;
+	color: #b4a078;
+	background: #FFF;
+	border: 8px solid transparent;
+    box-shadow: 0 0 0 1px #b4a078 inset; /*inset 内部阴影*/
+}
+
+/*
+filter:drop-shadow滤镜
+*/
+
+.box {
+	margin: 100px auto;
+	padding: 50px;
+	width: 300px;
+    background-color: #fff;
+    position: relative;
+    font-size: 24px;
+}
+.cor {
+    position: absolute;
+    left: -40px;
+	width: 0; 
+	height: 0;
+    overflow: hidden;
+    border: 20px solid transparent;
+    border-right-color: #fff;
+}
+.drop-shadow { /*对整个区域滤镜*/
+    filter: drop-shadow(5px 5px 10px black);
+}
+.box-shadow {
+    box-shadow: 5px 5px 10px black;
+}
+
+
+/*
+自定义复选框
+*/
+.checkbox {
+	margin: 100px auto;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+    position: relative;
+    line-height: 12px;
+    user-select: none;
+}
+input[type="checkbox"]:checked + label{
+    color: #b4a078;
+}
+input[type="checkbox"]:disabled + label {
+    cursor: not-allowed;
+    color: #999;
+}
+input[type="checkbox"] + label::before{
+    content: "";
+    display: inline-block;
+	width: 10px; 
+	height: 10px;
+    border-radius: 2px;
+    vertical-align: top;
+    margin-right: .2em;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+}
+input[type="checkbox"] + label::after{
+    content: "";
+    display: inline-block;
+	width: 3px; 
+	height: 7px;
+    border: 1px solid #fff;
+    border-top: 0;
+    border-left: 0;
+    position: absolute;
+    left: 4px; top: 1px;
+    transform: rotate(45deg) scale(0);
+    transition: all .2s ease-in-out;
+}
+input[type="checkbox"]:checked + label::before{
+    border-color: #b4a078 !important;
+    background-color: #b4a078;
+}
+input[type="checkbox"]:checked + label::after{
+    transform: rotate(45deg) scale(1);
+    transition: all .2s ease-in-out;
+}
+input[type="checkbox"]:disabled.checked + label::after{
+    border-color: #ccc;
+    transform: rotate(45deg) scale(1);
+}
+
+/*
+自定义单选框
+*/
+.radio {
+	margin: 100px auto;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input[type="radio"]{
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+input[type="radio"] + label{
+    cursor: pointer;
+    position: relative;
+    line-height: 12px;
+    user-select: none;
+}
+input[type="radio"]:disabled + label{
+    cursor: not-allowed;
+    color: #999;
+}
+input[type="radio"] + label::before{
+    content: "";
+    display: inline-block;
+	width: 10px; 
+	height: 10px;
+    border-radius: 8px;
+    vertical-align: top;
+    margin-right: .2em;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+}
+input[type="radio"]:not(:disabled) + label:hover::before{
+    border-color: #b4a078;
+}
+input[type="radio"]:checked + label::before{
+    border-color: #b4a078 !important;
+    background-color: #b4a078;
+}
+
+input[type="radio"] + label::after{
+    content: "";
+    display: inline-block;
+	width: 4px; 
+	height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+	left: 4px;
+	top: 50%;
+    transform: translateY(-50%) scale(0);
+    transition: transform .2s ease-in-out;
+}
+input[type="radio"]:checked + label::after{
+    transform: translateY(-50%) scale(1);
+    transition: transform .2s ease-in-out;
+}
+input[type="radio"]:disabled + label::before, input[type="radio"]:disabled.checked + label::before{
+    background-color: #f2f2f2;
+}
+
+
+/*
+输入框完美居中
+*/
+.input-text {
+	margin: 100px auto;
+	width: 300px;
+	height: 200px;
+	border: 1px solid red;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="text"] {
+    outline: none;
+    color: #666;
+    font-size: .9em;
+    padding: .5em;
+    border-radius: .2em;
+    border: 1px solid #e3e3e3;
+    /* -webkit-appearance: none; */
+}
+input[type="text"]:hover {
+    border: 1px solid #b4a078;
+}
+input[type="text"]:focus {
+    border: 1px solid #b4a078;
+    box-shadow: 0 0 0 2px rgba(180, 160, 120, 0.2);
+}
+::-webkit-input-placeholder {
+    line-height: 1.375em;
+}
+
+/*
+blur
+*/
+.blur {
+	width: 500px;
+	margin: 100px auto;
+	filter: blur(5px);
+}
+
+
+/*
+自定义文字下划线
+*/
+.text-underline {
+	margin: 100px auto;
+}
+.text-underline p:nth-of-type(1) a {
+	box-shadow: 0 -1px 0 0 #b4a078 inset;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
