@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AMCSS</title>
+    <style>
+        [am-btn~="large"] { /* 值含有 */
+            width: 100px;
+            height: 40px;
+            background: blue;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        [am-btn~="blue"] {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>AMCSS Attribute Modules for CSS CSS属性模式</h1>
+    <div am-btn="large blue">按钮</div>
+    <h2>用途：</h2>
+    <p>我们经常需要在DOM元素上存储数据，例如放在data-store属性中，此时，配合AMCSS，我们可以非常高效进行不同数据不同样式的控制。</p>
+</body>
+</html>

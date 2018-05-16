@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>背景渐变图片transtion过渡效果技巧</title>
+    <style>
+        .box {
+            max-width: 400px;
+            height: 200px;
+        }
+        .gradient {
+            background-image: linear-gradient(to right, olive, green);
+            transition: background-image 0.5s linear;
+        }
+        .gradient:hover {
+            background-image: linear-gradient(to right, green, red);
+        }
+
+        .box2 {
+            max-width: 400px;
+            height: 200px;
+            background: linear-gradient(to right, olive, green, purple);
+            background-size: 200%;
+            transition: background-position .5s; 
+        }
+        .box2:hover {
+            background-position: 100% 0;    
+        }
+    </style>
+</head>
+<body>
+    <h1>background-image不支持css3 transition </h1>
+    <div class="box gradient"></div>
+    <h1>1、借助background-position实现过度</h1>
+    <div class="box2"></div>
+</body>
+</html>

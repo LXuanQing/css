@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>focus-within</title>
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+        }
+        /*
+        <form>元素自身，或者<form>内部的子元素处于focus状态时候，<form>元素的样式
+        */
+        form {
+            outline: 2000px solid hsla(0,0%,100%,0);
+            transition: outline .2s;
+        }
+        form:focus-within {
+            outline: 2000px solid hsla(0,0%,100%,1);
+            color: red;
+            border: 1px solid blue;
+        }
+
+        .box:focus-within {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h2>标题</h2>
+    <h2>标题</h2>
+    <h2>标题</h2>
+    <form>
+        <input /><br>
+        <label>姓名</label>
+        <input />
+    </form>
+    <div>外部</div>
+    <h2>标题</h2>
+    <h2>标题</h2>
+    <h2>标题</h2>
+    <h1>例子2</h1>
+    <div class="box">
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <textarea></textarea>
+        <p>内容</p>
+        <p>内容</p>        
+    </div>
+</body>
+</html>
